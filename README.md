@@ -20,7 +20,7 @@ O curso foi organizado, de maneira teórico-prática, com o objetivo de que voc�
  
 Além dessa parte, serão fornecidos recursos bibliográficos adicionais, e discutidos aspectos tangenciais à parte prática aqui aplicada. Não abordaremos aspetos teóricos e práticos de maneira exaustiva, apenas forneceremos um panorama geral de como iniciar um projeto com dados de target-enrichment, e terminá-lo com uma árvore filogenética. Provavelmente, você irá se deparar com dificuldades teóricas, práticas, metodológicas e/ou computacionais em algum momento. Não se assuste e não desista - tod@s passam por isso, até Marie Curie, Einsten, Darwin, e Felsestein. 
 
-[1) Entenda como os dados foram e são gerados]
+[1) Entenda como os dados foram e são gerados](https://github.com/JulianaPGarcia/Curso-de-processamento-de-dados-de-target-sequencing-capture/blob/main/README.md#1-entenda-como-os-dados-foram-e-s%C3%A3o-gerados)
 
 [2) Filtrando e removendo sequências brutas de baixa qualidade proveniente do sequenciamento](https://github.com/JulianaPGarcia/Curso-de-processamento-de-dados-de-target-sequencing-capture/blob/main/README.md#2-filtrando-e-removendo-sequ%C3%AAncias-brutas-de-baixa-qualidade-proveniente-do-sequenciamento)
 
