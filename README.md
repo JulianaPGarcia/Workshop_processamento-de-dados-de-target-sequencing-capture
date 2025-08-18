@@ -462,4 +462,15 @@ java -jar /local/da/pasta/astral.5.7.8.jar -i all-gene-trees.relabel.tree -o spt
 
 Uhuuuul!!! Agora nós já temos uma árvore de espécies para nosso conjunto de dados. :D
 
+## Referências
+FROST, LA; BEDOYA, AM; LAGOMARSINO, LP Ortólogos Artificiais e a Necessidade de Exploração Diligente de Dados em Conjuntos Filogenômicos Complexos: Um Estudo de Caso Museológico da Flora Andina. Biologia Sistemática, 3 de janeiro de 2024. DOI: https://doi.org/10.1093/sysbio/syad076
+
+MAMANOVA, Lira et al. Target-enrichment strategies for next-generation sequencing. Nature methods, v. 7, n. 2, p. 111-118, 2010.
+
+ROMEIRO-BRITO, M.; et al. Um conjunto de sondas de captura de alvos útil para estudos filogenéticos de nível profundo e raso em Cactaceae. Genes, v. 13, n. 707, 2022. DOI: https://doi.org/10.3390/genes13040707 .
+
+SIMMONS, MP; GATESY, J. Colapso de ramos de árvores gênicas com resolução duvidosa em análises coalescentes filogenômicas. Molecular Phylogenetics and Evolution, v. 158, p. 107092, maio de 2021. DOI: https://doi.org/10.1016/j.ympev.2021.107092 .
+
+
+
 ![Badge em Desenvolvimento](http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=GREEN&style=for-the-badge)
