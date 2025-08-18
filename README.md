@@ -4,36 +4,39 @@
 
 # 27 de agosto 2025 / 29 de agosto 2025
 
-# Instrução: Juliana, Milena, Mateus
+# Instrução: Juliana, Milena, Matheus, João
  
 Esse workshop abordará algumas das principais etapas de processamento e análise de dados moleculares/genéticos provenientes de 'Targeted-enrichment Sequencing', especificamente do painel do Cactaceae591.
 O curso foi organizado, de maneira teórico-prática, com o objetivo de que você: 
   
-  - 1) entenda como os dados foram e são gerados;
-  - 2) aprenda a remover sequências brutas de baixa qualidade proveniente do sequenciamento;
-  - 3) monte (faça o 'assemble') (d)as sequências brutas em unidades genéticas informativas (genes/locus);
-  - 4) analise os arquivos de saída, identificando e removendo possíveis parálogos;
-  - 5) alinhe as sequências e aprenda a ver estatísticas (e.g., % de dados faltantes - 'missing-data' -, etc.); 
-  - 6) analise os alinhamentos, e filtre sequências espúrias, mal alinhadas, sem cobertura, ou ricas em gaps;
-  - 7) gere árvores de máxima-verossimilhança para cada locus e para as sequências concatenadas; 
-  - 8) obtenha uma árvore de espécies, utilizando um método sumário de coalescência de espécies;
+  - 1) Entenda como os dados foram e são gerados;
+  - 2) Comandos básicos do Linux;
+  - 3) Aprenda a remover sequências brutas de baixa qualidade proveniente do sequenciamento;
+  - 4) Monte (faça o 'assemble') (d)as sequências brutas em unidades genéticas informativas (genes/locus);
+  - 5) Análise os arquivos de saída, identificando e removendo possíveis parálogos;
+  - 6) Alinhe as sequências e aprenda a ver estatísticas (e.g., % de dados faltantes - 'missing-data' -, etc.); 
+  - 7) Análise os alinhamentos, e filtre sequências espúrias, mal alinhadas, sem cobertura, ou ricas em gaps;
+  - 8) Gere árvores de máxima-verossimilhança para cada locus e para as sequências concatenadas; 
+  - 9) Obtenha uma árvore de espécies, utilizando um método sumário de coalescência de espécies;
  
 Além dessa parte, serão fornecidos recursos bibliográficos adicionais, e discutidos aspectos tangenciais à parte prática aqui aplicada. Não abordaremos aspetos teóricos e práticos de maneira exaustiva, apenas forneceremos um panorama geral de como iniciar um projeto com dados de target-enrichment, e terminá-lo com uma árvore filogenética. Provavelmente, você irá se deparar com dificuldades teóricas, práticas, metodológicas e/ou computacionais em algum momento. Não se assuste e não desista - tod@s passam por isso, até Marie Curie, Einsten, Darwin, e Felsestein. 
 
  
 [1) Filtrando e removendo sequências brutas de baixa qualidade proveniente do sequenciamento](https://github.com/tunasdelsur/LaGEvol_course/blob/main/README.md#1-filtrando-e-removendo-sequ%C3%AAncias-brutas-de-baixa-qualidade-proveniente-do-sequenciamento)
 
-[2) Montando as sequências brutas (trimadas) em unidades genéticas informativas (genes/locus) com o HybPiper](https://github.com/tunasdelsur/LaGEvol_course#2-montando-as-sequ%C3%AAncias-brutas-trimadas-em-unidades-gen%C3%A9ticas-informativas-geneslocus-com-o-hybpiper)
+[2) Comandos básicos do Linux]
 
-[3) Identificando e removendo possíveis parálogos](https://github.com/tunasdelsur/LaGEvol_course#3-identificando-e-removendo-poss%C3%ADveis-par%C3%A1logos)
+[3) Montando as sequências brutas (trimadas) em unidades genéticas informativas (genes/locus) com o HybPiper](https://github.com/tunasdelsur/LaGEvol_course#2-montando-as-sequ%C3%AAncias-brutas-trimadas-em-unidades-gen%C3%A9ticas-informativas-geneslocus-com-o-hybpiper)
 
-[4) Alinhando as sequências](https://github.com/tunasdelsur/LaGEvol_course#4-alinhando-as-sequ%C3%AAncias)
+[4) Identificando e removendo possíveis parálogos](https://github.com/tunasdelsur/LaGEvol_course#3-identificando-e-removendo-poss%C3%ADveis-par%C3%A1logos)
 
-[5) Filtrando sequências espúrias, mal alinhadas ou ricas em gaps e vendo as estatísticas](https://github.com/tunasdelsur/LaGEvol_Workshop_Cactaceae591/blob/main/README.md#5-filtrando-sequ%C3%AAncias-esp%C3%BArias-mal-alinhadas-ou-ricas-em-gaps-e-vendo-as-estat%C3%ADsticas)
+[5) Alinhando as sequências](https://github.com/tunasdelsur/LaGEvol_course#4-alinhando-as-sequ%C3%AAncias)
 
-[6) Inferência filogenética baseada em máxima-verossimilhança para cada locus e para as sequências concatenadas](https://github.com/tunasdelsur/LaGEvol_Workshop_Cactaceae591/blob/main/README.md#6-inferencia-filogen%C3%A9tica-baseada-em-m%C3%A1xima-verossimilhan%C3%A7a-para-cada-locus-e-para-as-sequ%C3%AAncias-concatenadas)
+[6) Filtrando sequências espúrias, mal alinhadas ou ricas em gaps e vendo as estatísticas](https://github.com/tunasdelsur/LaGEvol_Workshop_Cactaceae591/blob/main/README.md#5-filtrando-sequ%C3%AAncias-esp%C3%BArias-mal-alinhadas-ou-ricas-em-gaps-e-vendo-as-estat%C3%ADsticas)
 
-[7) Inferindo uma árvore de espécies utilizando um método sumário de coalescência de espécies](https://github.com/tunasdelsur/LaGEvol_Workshop_Cactaceae591/blob/main/README.md#7-inferindo-uma-%C3%A1rvore-de-esp%C3%A9cies-utilizando-um-m%C3%A9todo-sum%C3%A1rio-de-coalesc%C3%AAncia-de-esp%C3%A9cies)
+[7) Inferência filogenética baseada em máxima-verossimilhança para cada locus e para as sequências concatenadas](https://github.com/tunasdelsur/LaGEvol_Workshop_Cactaceae591/blob/main/README.md#6-inferencia-filogen%C3%A9tica-baseada-em-m%C3%A1xima-verossimilhan%C3%A7a-para-cada-locus-e-para-as-sequ%C3%AAncias-concatenadas)
+
+[8) Inferindo uma árvore de espécies utilizando um método sumário de coalescência de espécies](https://github.com/tunasdelsur/LaGEvol_Workshop_Cactaceae591/blob/main/README.md#7-inferindo-uma-%C3%A1rvore-de-esp%C3%A9cies-utilizando-um-m%C3%A9todo-sum%C3%A1rio-de-coalesc%C3%AAncia-de-esp%C3%A9cies)
 
 
  
