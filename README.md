@@ -42,7 +42,13 @@ Os comandos apresentados foram baseados no workshop "Análises Filogenéticas Co
 
  
  # 1) Entenda como os dados foram e são gerados
+Para sequenciar nossas amostras precisamos realizar a extração do DNA genômico das mesmas; por se tratar de Cactaceae a extração deve ser realizada do tecido de raiz, visto que a epedirme apresenta muita mussilagem e consequentemente diminui a qualidade do DNA, por conta disso utilizamos o protocolo elaborado por Romeiro-Brito et al. (2023). Após a extração do DNA, as amostras são encaminhadas para a RAPID-Genomics, onde passam por um sofisticado processo de sequenciamento de nova geração (NGS). O primeiro passo consiste na fragmentação do DNA genômico em pequenos pedaços, que são então ligados a sondas específicas (sondas elaboradas para o painel Cactaceae591) através de hibridização. Essa etapa é crucial para a preparação da biblioteca genômica, pois as sondas permitem a seleção e o enriquecimento das regiões de interesse.
 
+Em seguida, os fragmentos selecionados passam por uma amplificação clonal, na qual uma DNA polimerase produz milhares de cópias complementares de cada fragmento. Esse processo gera pares de leituras em orientações opostas (5’→3’ e 3’→5’), razão pela qual os dados brutos fornecidos incluem os arquivos R1 e R2 para cada amostra.
+
+Na etapa final de sequenciamento propriamente dita, utiliza-se a tecnologia de síntese por incorporação de nucleotídeos marcados com fluoróforos. Cada base (A, T, C, G) possui fluorescencia específico, que emite um sinal luminoso característico ao ser incorporada à fita de DNA em síntese. Esses sinais são capturados em tempo real por detectores altamente sensíveis e convertidos em sequências de nucleotídeos por meio de um computador. 
+
+Para maior detalhamento do sequenciamento utilizando a plataforma Illumina: https://www.youtube.com/watch?v=fCd6B5HRaZ8
 
  # 2) Filtrando e removendo sequências brutas de baixa qualidade proveniente do sequenciamento
  
