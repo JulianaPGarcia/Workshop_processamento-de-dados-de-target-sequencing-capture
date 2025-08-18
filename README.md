@@ -4,7 +4,7 @@
 
 # 27 de agosto 2025 / 29 de agosto 2025
 
-# Instrução: Juliana, Milena, Matheus, João
+# Instrução: Juliana, Milena, Matheus e João
  
 Esse workshop abordará algumas das principais etapas de processamento e análise de dados moleculares/genéticos provenientes de 'Targeted-enrichment Sequencing', especificamente do painel do Cactaceae591.
 O curso foi organizado, de maneira teórico-prática, com o objetivo de que você: 
@@ -82,11 +82,12 @@ Então, precisamos adaptar os códigos para lidar com muitas sequências. Da mes
 
 Você irá criar várias pastas e arquivos ao longo do projeto, e você precisa estar atento para saber onde está cada uma, e qual é diferente de qual, e por quê. Ter um caderno de anotações (ou no computador, um bloco de notas - Notepad++, ou outros) pode ser útil, até estar familiarizado com o fluxo de trabalho.
 
-Para rodar o _fastp_  em várias sequencias de uma única vez, elaboramos o seguinte código para vocês:
+Para rodar o _fastp_  em várias sequencias de uma única vez, elaboramos o seguinte código para vocês (fique atento ao formato do arquivo) :
 
 ```
 R1=(*_L001_R1_001.fastq.gz.fastq)
 R2=(*_L001_R2_001.fastq.gz.fastq)
+
 for ((i=0;i<=${#R1[@]};i++)); do fastp  -i "${R1[i]}" -I "${R2[i]}"  -o "trim_${R1[i]}.fastq" -O "trim_${R2[i]}.fastq" -j "${R1[i]}.fastp.json" -h "${R1[i]}.fastp.html" -q 20 --dont_overwrite --failed_out "failed.${R1[i]}"; done
 ```
 
@@ -98,6 +99,15 @@ fastp -h
 
 Aparecerá na sua tela todas as opções de comando do programa, com informações de cada funcionalidade.
 
+Criando uma pasta para colocar as amostras trimadas
+
+```
+mkdir amostras_trimadas
+```
+Copiar os arquivos para a pasta
+
+```
+cp trim* ./amostras_trimadas
 
 # 3) Montando as sequências brutas (trimadas) em unidades genéticas informativas (genes/locus) com o HybPiper
 
@@ -115,7 +125,7 @@ Se necessário, descompacte seus dados usando o comando abaixo:
 tar -zxvf samplesdata_fastq.tar.gz
 ```
 
-Verifique se você tem um arquivo contendo todos os nomes das amostras, cada uma em uma linha (ex: namelist.txt); um arquivo de referência contendo as sequências do genoma de interesse geradas com o sequenciamento do targe-capture (ex: targets.fasta); e todos os seus dados brutos trimados de amostras (ex: amostra1_R1_trimada.fastq, amostra1_R2_trimada.fastq)
+Verifique se você tem um arquivo contendo todos os nomes das amostras, cada uma em uma linha (ex: namelist.txt); um arquivo de referência contendo as sequências do genoma de interesse geradas com o sequenciamento do targe-capture (Painel Cactaceae591 ex: targets.fasta); e todos os seus dados brutos trimados de amostras (ex: amostra1_R1_trimada.fastq, amostra1_R2_trimada.fastq)
 
 Primeiro, ative a biblioteca do HybPiper pelo conda.
 
@@ -129,7 +139,7 @@ Para uma amostra, usaríamos o seguinte comando:
 hybpiper assemble -r amostra1_R1_trimada.fastq amostra1_R2_trimada.fastq -t_dna targets.fasta 
 ```
 
-Novamente, lembre-se que, normalemnte, os programas tem múltiplas funções, e você pode (deve) verificar elas com o argumento _-h_:
+Novamente, lembre-se que, normalemnte, os programas tem múltiplas funções, e você pode (deve) verificar elas com o argumento _-h_. Vale ressaltar que as versões mais nova do HybPiper roda o --run_intonerate automaticamente, não precisando colocar no comando:
 
 ```
 hybpiper -h
@@ -138,7 +148,7 @@ hybpiper -h
 Por exemplo, nos nossos dados, para todas as amostras, vamos executar o seguinte comando:
 
 ```
-while read name; do hybpiper assemble -r $name*.fastq -t_dna targets.fasta --prefix $name --bwa  --run_intronerate; done < namelist.txt
+while read name; do hybpiper assemble -r $name*.fastq -t_dna targets.fasta --prefix $name --bwa; done < namelist.txt
 ```
 
 Depois de fazer o assemble, vamos pegar as estatísticas, ver quantos genes foram montados para cada amostra, eficiência, etc.
@@ -159,7 +169,7 @@ Depois de verificar a eficiência de amostra/locus, vamos sintetizar os reads re
 hybpiper retrieve_sequences dna -t_dna targets.fasta --sample_names namelist.txt --fasta_dir 01_dna
 ```
 
-Além de recuperar as sequências 'target', podemos também recuperar as sequências adjacentes que foram geradas no sequenciamento. Para isso, utilizamos a o argumento "--run_intronerate" na hora de fazer o assemble, e agora recuperamos essas sequências, que o HybPiper chama de 'supercontig':
+Além de recuperar as sequências 'target', podemos também recuperar as sequências adjacentes que foram geradas no sequenciamento. Para isso, utilizamos a o argumento "--run_intronerate" na hora de fazer o assemble (que dependendo a versão do HybPiper é automatico), e agora recuperamos essas sequências, que o HybPiper chama de 'supercontig':
 
 ```
 hybpiper retrieve_sequences supercontig -t_dna targets.fasta --sample_names namelist.txt --fasta_dir 04_supercontig
@@ -188,6 +198,13 @@ sed -i 's/*_*[0-9]*_*hits*//g' *
 sed -i 's/single//g' *
 sed -i 's/multi_stitched_contig_comprising_//g' *
 ```
+Os arquivos do supercontig apresentam outra mensagem de erro além destas a cima
+
+```
+sed -i 's/ Joins between unique SPAdes contigs are separated by 10 "N" characters//g' *
+```
+
+
 
 # 4) Identificando e removendo possíveis parálogos
 
@@ -262,6 +279,12 @@ Agora, o loop para alinhar todas as sequencias, e direcionar para a pasta criada
 
 ```
 nohup sh -c 'for i in *.fasta; do mafft --reorder --auto "$i" > "./Alignments/aligned_$i"; done'  &
+```
+
+Para verificar se o programa está rodando da para utilizar o comando:
+
+```
+htop
 ```
 
 
