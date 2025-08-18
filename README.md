@@ -10,37 +10,37 @@ Esse workshop abordará algumas das principais etapas de processamento e anális
 O curso foi organizado, de maneira teórico-prática, com o objetivo de que você: 
   
   - 1) Entenda como os dados foram e são gerados;
-  - 2) Comandos básicos do Linux;
-  - 3) Aprenda a remover sequências brutas de baixa qualidade proveniente do sequenciamento;
-  - 4) Monte (faça o 'assemble') (d)as sequências brutas em unidades genéticas informativas (genes/locus);
-  - 5) Análise os arquivos de saída, identificando e removendo possíveis parálogos;
-  - 6) Alinhe as sequências e aprenda a ver estatísticas (e.g., % de dados faltantes - 'missing-data' -, etc.); 
-  - 7) Análise os alinhamentos, e filtre sequências espúrias, mal alinhadas, sem cobertura, ou ricas em gaps;
-  - 8) Gere árvores de máxima-verossimilhança para cada locus e para as sequências concatenadas; 
-  - 9) Obtenha uma árvore de espécies, utilizando um método sumário de coalescência de espécies;
+  - 2) Entenda como os dados foram e são gerados e aprenda a remover sequências brutas de baixa qualidade proveniente do sequenciamento;
+  - 3) Monte (faça o 'assemble') (d)as sequências brutas em unidades genéticas informativas (genes/locus);
+  - 4) Análise os arquivos de saída, identificando e removendo possíveis parálogos;
+  - 5) Alinhe as sequências e aprenda a ver estatísticas (e.g., % de dados faltantes - 'missing-data' -, etc.); 
+  - 6) Análise os alinhamentos, e filtre sequências espúrias, mal alinhadas, sem cobertura, ou ricas em gaps;
+  - 7) Gere árvores de máxima-verossimilhança para cada locus e para as sequências concatenadas; 
+  - 8) Obtenha uma árvore de espécies, utilizando um método sumário de coalescência de espécies;
  
 Além dessa parte, serão fornecidos recursos bibliográficos adicionais, e discutidos aspectos tangenciais à parte prática aqui aplicada. Não abordaremos aspetos teóricos e práticos de maneira exaustiva, apenas forneceremos um panorama geral de como iniciar um projeto com dados de target-enrichment, e terminá-lo com uma árvore filogenética. Provavelmente, você irá se deparar com dificuldades teóricas, práticas, metodológicas e/ou computacionais em algum momento. Não se assuste e não desista - tod@s passam por isso, até Marie Curie, Einsten, Darwin, e Felsestein. 
 
- 
-[1) Filtrando e removendo sequências brutas de baixa qualidade proveniente do sequenciamento](https://github.com/JulianaPGarcia/Curso-de-processamento-de-dados-de-target-sequencing-capture/blob/main/README.md#1-filtrando-e-removendo-sequ%C3%AAncias-brutas-de-baixa-qualidade-proveniente-do-sequenciamento)
+[1) Entenda como os dados foram e são gerados]
 
-[2) Comandos básicos do Linux]
+[2) Filtrando e removendo sequências brutas de baixa qualidade proveniente do sequenciamento](https://github.com/JulianaPGarcia/Curso-de-processamento-de-dados-de-target-sequencing-capture/blob/main/README.md#2-filtrando-e-removendo-sequ%C3%AAncias-brutas-de-baixa-qualidade-proveniente-do-sequenciamento)
 
-[3) Montando as sequências brutas (trimadas) em unidades genéticas informativas (genes/locus) com o HybPiper](https://github.com/tunasdelsur/LaGEvol_course#2-montando-as-sequ%C3%AAncias-brutas-trimadas-em-unidades-gen%C3%A9ticas-informativas-geneslocus-com-o-hybpiper)
+[3) Montando as sequências brutas (trimadas) em unidades genéticas informativas (genes/locus) com o HybPiper](https://github.com/JulianaPGarcia/Curso-de-processamento-de-dados-de-target-sequencing-capture/blob/main/README.md#3-montando-as-sequ%C3%AAncias-brutas-trimadas-em-unidades-gen%C3%A9ticas-informativas-geneslocus-com-o-hybpiper)
 
-[4) Identificando e removendo possíveis parálogos](https://github.com/tunasdelsur/LaGEvol_course#3-identificando-e-removendo-poss%C3%ADveis-par%C3%A1logos)
+[4) Identificando e removendo possíveis parálogos](https://github.com/JulianaPGarcia/Curso-de-processamento-de-dados-de-target-sequencing-capture/blob/main/README.md#4-identificando-e-removendo-poss%C3%ADveis-par%C3%A1logos)
 
-[5) Alinhando as sequências](https://github.com/tunasdelsur/LaGEvol_course#4-alinhando-as-sequ%C3%AAncias)
+[5) Alinhando as sequências](https://github.com/JulianaPGarcia/Curso-de-processamento-de-dados-de-target-sequencing-capture/blob/main/README.md#5-alinhando-as-sequ%C3%AAncias)
 
-[6) Filtrando sequências espúrias, mal alinhadas ou ricas em gaps e vendo as estatísticas](https://github.com/tunasdelsur/LaGEvol_Workshop_Cactaceae591/blob/main/README.md#5-filtrando-sequ%C3%AAncias-esp%C3%BArias-mal-alinhadas-ou-ricas-em-gaps-e-vendo-as-estat%C3%ADsticas)
+[6) Filtrando sequências espúrias, mal alinhadas ou ricas em gaps e vendo as estatísticas](https://github.com/JulianaPGarcia/Curso-de-processamento-de-dados-de-target-sequencing-capture/blob/main/README.md#6-filtrando-sequ%C3%AAncias-esp%C3%BArias-mal-alinhadas-ou-ricas-em-gaps-e-vendo-as-estat%C3%ADsticas)
 
-[7) Inferência filogenética baseada em máxima-verossimilhança para cada locus e para as sequências concatenadas](https://github.com/tunasdelsur/LaGEvol_Workshop_Cactaceae591/blob/main/README.md#6-inferencia-filogen%C3%A9tica-baseada-em-m%C3%A1xima-verossimilhan%C3%A7a-para-cada-locus-e-para-as-sequ%C3%AAncias-concatenadas)
+[7) Inferência filogenética baseada em máxima-verossimilhança para cada locus e para as sequências concatenadas](https://github.com/JulianaPGarcia/Curso-de-processamento-de-dados-de-target-sequencing-capture/blob/main/README.md#7-inferencia-filogen%C3%A9tica-baseada-em-m%C3%A1xima-verossimilhan%C3%A7a-para-cada-locus-e-para-as-sequ%C3%AAncias-concatenadas)
 
-[8) Inferindo uma árvore de espécies utilizando um método sumário de coalescência de espécies](https://github.com/tunasdelsur/LaGEvol_Workshop_Cactaceae591/blob/main/README.md#7-inferindo-uma-%C3%A1rvore-de-esp%C3%A9cies-utilizando-um-m%C3%A9todo-sum%C3%A1rio-de-coalesc%C3%AAncia-de-esp%C3%A9cies)
-
+[8) Inferindo uma árvore de espécies utilizando um método sumário de coalescência de espécies](https://github.com/JulianaPGarcia/Curso-de-processamento-de-dados-de-target-sequencing-capture/blob/main/README.md#8-inferindo-uma-%C3%A1rvore-de-esp%C3%A9cies-utilizando-um-m%C3%A9todo-sum%C3%A1rio-de-coalesc%C3%AAncia-de-esp%C3%A9cies)
 
  
- # 1) Filtrando e removendo sequências brutas de baixa qualidade proveniente do sequenciamento
+ # 1) Entenda como os dados foram e são gerados
+
+
+ # 2) Filtrando e removendo sequências brutas de baixa qualidade proveniente do sequenciamento
  
 Existem vários métodos e abordagens para realizar essa tarefa. Nesse tutorial, utilizaremos o _fastp_, um processador ultra-rápido e eficienete de arquivos `.fastq` (Veja mais aqui: https://academic.oup.com/bioinformatics/article/34/17/i884/5093234; e aqui: https://github.com/OpenGene/fastp).
 
@@ -99,7 +99,7 @@ fastp -h
 Aparecerá na sua tela todas as opções de comando do programa, com informações de cada funcionalidade.
 
 
-# 2) Montando as sequências brutas (trimadas) em unidades genéticas informativas (genes/locus) com o HybPiper
+# 3) Montando as sequências brutas (trimadas) em unidades genéticas informativas (genes/locus) com o HybPiper
 
 ## _HybPiper_
 
@@ -189,7 +189,7 @@ sed -i 's/single//g' *
 sed -i 's/multi_stitched_contig_comprising_//g' *
 ```
 
-# 3) Identificando e removendo possíveis parálogos
+# 4) Identificando e removendo possíveis parálogos
 
 Nesse ponto, você já deve saber o que são cópias parálogas, e porque devemos estar cientes delas. Existem vários e distintos métodos de identificar e remover parálogos em conjunto de dados filogenômicas.
 Nesse workshop, realizaremos um método simples, baseado no próprio HybPiper. Veja detalhes sobre isso aqui: https://github.com/mossmatters/HybPiper/wiki/Paralogs
@@ -226,7 +226,7 @@ Agora podemos mover todos os arquivos fasta dos genes identificados como paralog
 while read line; do mv $line ./locos_paralogos; done < list_paralogs_remove.txt
 ```
 
-# 4) Alinhando as sequências
+# 5) Alinhando as sequências
 Agora que já temos as sequências dos locos e das amostras 'montadas', podemos seguir para o próximo passo, que é alinhar as sequências. Isso é necessário para que possamos comparar as sequências das amostras entre si de maneira que faça sentido evolutivo, ou seja, comparando entre sítios que tenham a mesma história evolutiva. Mesmo que para o sequênciamento de todas as amostras tenha sido usado as mesmas 'probes', é possível e provável que a sequência final montada de cada locus/amostra tenha tamanhos diferentes, tenha iniciado/terminado em regiões diferentes, ou que tenha sido montada regiões além da que fornecemos no arquivo de referência. Por isso, precisamos alinhar.
 
 Após fazer o assemble com o HybPiper, e utilizar o comando `retrieve_sequences`, você deve ter gerado na sua pasta de trabalho os seguintes diretótios, por exemplo: `01_dna_seqs` e `04_supercontigs_seqs`.
@@ -265,7 +265,7 @@ nohup sh -c 'for i in *.fasta; do mafft --reorder --auto "$i" > "./Alignments/al
 ```
 
 
-# 5) Filtrando sequências espúrias, mal alinhadas ou ricas em gaps e vendo as estatísticas
+# 6) Filtrando sequências espúrias, mal alinhadas ou ricas em gaps e vendo as estatísticas
 
 Ainda que usemos os melhores programas, com os melhores algoritmos para alinhar nossos locos com múltiplas sequências, esses métodos podem falhar com certas famílias de proteínas ou em regiões específicas do alinhamento. A confiabilidade e precisão das análises dependem criticamente da qualidade dos alinhamentos, portanto se conseguirmos identificar e remover essas regiões mal alinhadas e/ou com sequências espúrias, melhoraremos a qualidade do nosso alinhamento e consequentemente as estimativas das análises que dependem da informação contida nesses alinhamentos.
 
@@ -325,7 +325,7 @@ Para isso utilizaremos o programa AMAS com o seguinte comando:
 python3 AMAS.py summary -f fasta -d dna -i *.fasta -o 0.SummaryStats.csv
 ```
 
-# 6) Inferencia filogenética baseada em máxima-verossimilhança para cada locus e para as sequências concatenadas
+# 7) Inferencia filogenética baseada em máxima-verossimilhança para cada locus e para as sequências concatenadas
 Existem diferentes programas e métodos (verossimilhança, bayesiano, coalescente...) para fazer uma inferência filogenética, aqui iremos utilizar o programa iQTree. iQTree é um programa de inferência filogenética baseado em máxima verossimilhança. De forma simplificada métodos de máxima verossimilhança vão avaliar a probabilidade de que um determinado modelo/hipótese tenha gerado os dados observados.
 
 Para inferir uma árvore para cada loco utilizando o iQTree, podemos usar o comando abaixo:
@@ -368,7 +368,7 @@ iqtree -nt 4 -s minha_supermatrix.fasta  -p partitions.txt  -st DNA -m MFP -B 10
 ```
 
 
-# 7) Inferindo uma árvore de espécies utilizando um método sumário de coalescência de espécies.
+# 8) Inferindo uma árvore de espécies utilizando um método sumário de coalescência de espécies.
 
 Nessa etapa iremos inferir uma árvore de espécies. Chamamos de árvores de espécies aquelas inferências filogenéticas baseadas em coalescência. Os métodos coalescentes inferem uma filogenia incorporando a heterogeneidade genealógica esperada entre os locos (a discordância entre as árvores de genes).
  
