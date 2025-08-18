@@ -15,7 +15,7 @@ O curso foi organizado, de maneira teórico-prática, com o objetivo de que voc�
   - 4) Análise os arquivos de saída, identificando e removendo possíveis parálogos;
   - 5) Alinhe as sequências e aprenda a ver estatísticas (e.g., % de dados faltantes - 'missing-data' -, etc.); 
   - 6) Análise os alinhamentos, e filtre sequências espúrias, mal alinhadas, sem cobertura, ou ricas em gaps;
-       - Filtragem adicional: remoção de rigiões hipervariáveis
+       - Filtragem adicional: remoção de regiões hipervariáveis
   - 7) Gere árvores de máxima-verossimilhança para cada locus e para as sequências concatenadas; 
   - 8) Obtenha uma árvore de espécies, utilizando um método sumário de coalescência de espécies;
  
@@ -327,10 +327,17 @@ Após rodar essa ferramenta poderemos encontrar os seguintes arquivos de saída 
 *imagens png - São gráficos com a distribuição de distância de cada amostra. Essas figuras são interessantes de serão analisadas para confirmar que os parametros utilizados na trimagem são os mais adequados.
 Para mais detalhes você pode acessar diretamente o github do autor do spruceup -> https://github.com/marekborowiec/spruceup
 
-Agora que temos uma supermatrix sem sequencias espúrias, nós podemos separar essa supermatrix em cada loco. Lembra que ao concatenar os alinhamentos podemos pedir para o programa (que estamos utilizando para concatenar) gerar um arquivo de partição? É com esse arquivo de partição que iremos separar nossa supermatrix em locos.
+Agora que temos uma supermatrix sem sequencias espúrias, nós podemos separar essa supermatrix em cada loco. Lembra que ao concatenar os alinhamentos podemos pedir para o programa (que estamos utilizando para concatenar) gerar um arquivo de partição. É com esse arquivo de partição que iremos separar nossa supermatrix em locos. Além disso podemos já renomear as amostras.
+
+Para renomear será preciso um arquivo com os nomes antigo (cnames.txt) e um arquivo com os nomes finais (nnames.txt)
 
 ```
-python3 AMAS.py split -f fasta -d dna -i 0.valor-do-cut-off_nome-do-alinhamento.fasta -l partitions.txt -u fasta -j
+pxrls -s 0.valor-do-cut-off_nome-do-alinhamento.fasta -c cnames.txt -n nnames.txt -o 0.valor-do-cut-off_nome-do-alinhamento.fasta _renomeada
+```
+Para desconcatenar os alinhamentos com os nomes finais:
+
+```
+python3 AMAS.py split -f fasta -d dna -i 0.valor-do-cut-off_nome-do-alinhamento.fasta _renomeada -l partitions.txt -u fasta -j
 ```
 Agora você verá que em sua pasta, além da supermatrix, você tem o arquivo do alinhamento 'polido' de cada um dos locos definidos no arquivo de partição.
 Esses alinhamentos 'polidos" serão nossos conjunto de dados utilizados em todas as análises a seguir, portanto mova-os para uma pasta separada. 
