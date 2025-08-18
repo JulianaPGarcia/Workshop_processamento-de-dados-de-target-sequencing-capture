@@ -15,6 +15,7 @@ O curso foi organizado, de maneira teórico-prática, com o objetivo de que voc�
   - 4) Análise os arquivos de saída, identificando e removendo possíveis parálogos;
   - 5) Alinhe as sequências e aprenda a ver estatísticas (e.g., % de dados faltantes - 'missing-data' -, etc.); 
   - 6) Análise os alinhamentos, e filtre sequências espúrias, mal alinhadas, sem cobertura, ou ricas em gaps;
+       - Filtragem adicional: remoção de rigiões hipervariáveis
   - 7) Gere árvores de máxima-verossimilhança para cada locus e para as sequências concatenadas; 
   - 8) Obtenha uma árvore de espécies, utilizando um método sumário de coalescência de espécies;
  
