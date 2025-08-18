@@ -283,7 +283,7 @@ mkdir Alignments
 Agora, o loop para alinhar todas as sequencias, e direcionar para a pasta criada:
 
 ```
-nohup sh -c 'for i in *.fasta; do mafft --reorder --auto "$i" > "./Alignments/aligned_$i"; done'  &
+nohup sh -c 'for i in *.fasta; do mafft --reorder --preservecase --auto "$i" > "./Alignments/aligned_$i"; done'  &
 ```
 
 Para verificar se o programa está rodando da para utilizar o comando:
@@ -453,7 +453,7 @@ cp ../supermatrix_tree/nnames.txt ./
 Vamos renomear os tips das arvores de genes que geramos. 
 
 ```
-pxrlt -t all-gene-trees.tree -c cnames.txt -n nnames.txt -o all-gene-trees.relabel.tree
+while read -r line;do sed -i "s/${line%* }/${line# *}/g" arvores_genes.txt;done < lista-nomes_tips.txt
 ```
 
 Com esse arquivo contendo todas as nossas árvores de genes com os nós colapsados podemos rodar o programa Astral. 
