@@ -286,7 +286,7 @@ Agora, o loop para alinhar todas as sequencias, e direcionar para a pasta criada
 nohup sh -c 'for i in *.fasta; do mafft --reorder --preservecase --auto "$i" > "./Alignments/aligned_$i"; done'  &
 ```
 
-Para verificar se o programa está rodando da para utilizar o comando:
+Para verificar se o programa está rodando utilizar o comando:
 
 ```
 htop
