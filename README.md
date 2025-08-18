@@ -308,11 +308,18 @@ Usando o argumento strict para polir o alinhamento. Esse argumento combina as in
 trimal -in meualinhamento.fa -strict -out meualinhamento_trim.fa -htmlout meualinhamento_trim.html
 ```
 
+Dependendo da versão do trimal ele não reconhece o ? colocado no lugar de uma base faltante, para isso usamos:
+
+```
+sed -i 's/?/-/g' *.fasta
+```
+
 Agora escolha um dos dois métodos e faça um loop para realizar esse polimento para todas as amostras usando um só comando. Exemplo abaixo utiliza o argumento strict:
 
 ```
 for i in *.FNA; do trimal -in $i -out ./alinhamento_trimado/"$i"_trimmed.fasta -gt 0.7; done; 
 ```
+
 Além do trimal, existem outros programas capazes de fazer um polimento dos dados. Um deles é o spruceup, uma ferramenta utilizada para descobrir, visualizar e remover sequências espúrias (muito discrepantes) em um alinhamento de múltiplas sequências. Essa ferramenta foi desenvolvida em Python, portanto para usa-la, além de instalar o próprio spruceup é preciso ter o Python instalado no computador. 
 
 Para utilizar o spruceup você precisará de uma supermatrix em fasta (gerada ao concatenar os locos; para aprender como concatenar veja a etapa 6 do presente tutorial), uma árvore preliminar (opcional), e um arquivo onde todos os paramentros escolhidos para a filtragem ficarão (configuration file). Você pode encontrar um exemplo desse arquivo nos arquivos nessa página do github (my-configuration-file.conf) e editalo em qualquer editor de texto. Com todos esses arquivos prontos você já pode rodar o spruceup com o comando a seguir:
@@ -334,7 +341,7 @@ Para renomear será preciso um arquivo com os nomes antigo (cnames.txt) e um arq
 ```
 pxrls -s 0.valor-do-cut-off_nome-do-alinhamento.fasta -c cnames.txt -n nnames.txt -o 0.valor-do-cut-off_nome-do-alinhamento.fasta _renomeada
 ```
-Para desconcatenar os alinhamentos com os nomes finais:
+Para desconcatenar os alinhamentos com os nomes finais  (vale ressaltar que dependendo da maneira que o programa foi instalado tem que colocar todo o caminho até ele no lugar do AMAS.py; ex: /mnt/c/Users/Pichau/Desktop/Programas/AMAS/amas/AMAS.py):
 
 ```
 python3 AMAS.py split -f fasta -d dna -i 0.valor-do-cut-off_nome-do-alinhamento.fasta _renomeada -l partitions.txt -u fasta -j
@@ -348,7 +355,7 @@ mv OG00* ./locos_trimados
 ```
 Pronto! Agora na sua pasta "locos_trimados" estão os locos alinhados e “polidos”.
 
-Com esses arquivos podemos gerar algumas estatísticas para avaliar em cada loco quantas amostras temos, qual o comprimento das sequências, o número de N (caracteres indeterminados), proporção de sítios variáveis... 
+Com esses arquivos podemos gerar algumas estatísticas para avaliar em cada loco quantas amostras temos, qual o comprimento das sequências, o número de N (caracteres indeterminados), proporção de sítios variáveis... podendo ser utilizado para filtragens adicionais (amostras com missing data). 
 
 Para isso utilizaremos o programa AMAS com o seguinte comando:
 
@@ -393,9 +400,22 @@ mv minha_supermatrix.fasta ./supermatrix_tree
 mv partitions.txt ./supermatrix_tree
 ```
 
-Agora com a nossa supermatrix podemos utilizá-la para gerar uma árvore baseada em máxima verossimilhança utilizando todos os nossos locos.
+Assim como o AMAS o IQTree as vezes exige o caminho completo até o programa, para isso podemos exportar o caminho com o comando abaixo. Importante ressaltar que se fechado o terminal o comando deve ser exportado novamente. 
+
 ```
-iqtree -nt 4 -s minha_supermatrix.fasta  -p partitions.txt  -st DNA -m MFP -B 1000
+export PATH=$PATH:caminho_para_o_programa/iqtree-2.2.0-Linux/bin
+```
+
+Agora com a nossa supermatrix podemos utilizá-la para gerar uma árvore baseada em máxima verossimilhança utilizando todos os nossos locos (explore os comandos possíveis do programa com o -help). 
+
+```
+iqtree -nt 10 -s minha_supermatrix.fasta  -p partitions.txt  -st DNA -m MFP -B 1000
+```
+
+Podemos renomear a árvore nesta etapa, será preciso um arquivo com os nomes antigo (cnames.txt) e um arquivo com os nomes finais (nnames.txt)
+
+```
+pxrlt -t partitions.txt.treefile -c cnames.txt -n nnames.txt -o partitions.fasta.relabel.tree 
 ```
 
 
@@ -404,6 +424,12 @@ iqtree -nt 4 -s minha_supermatrix.fasta  -p partitions.txt  -st DNA -m MFP -B 10
 Nessa etapa iremos inferir uma árvore de espécies. Chamamos de árvores de espécies aquelas inferências filogenéticas baseadas em coalescência. Os métodos coalescentes inferem uma filogenia incorporando a heterogeneidade genealógica esperada entre os locos (a discordância entre as árvores de genes).
  
 Nesse tutorial utilizaremos o programa Astral III. Esse programa é um método sumário (sumarização de árvores) para a inferência filogenética baseado no modelo de coalescência. De maneira resumida, o programa infere a árvore de espécies que melhor concorda com a maioria dos quartetos induzidos pelas árvores de cada gene separadamente.
+
+Para gerar as árvores de cada gene é similar ao passo anterior, mas ao inves de utilizar o arquivo concatenado iremos utilizar cada alinhamento
+
+```
+nohup sh -c 'for i in *.fasta; do iqtree2 -nt 10 -s "$i" -st DNA -m MFP -B 1000; done 2>iqtree.err' &
+```
 
 Como dado de entrada para o astral utilizaremos as árvores de genes geradas pelo iQTree. Para isso precisamos entrar na pasta onde estão todos as minhas árvores de genes e junta-las em um único arquivo.
 
@@ -432,12 +458,6 @@ Rodando o Astral:
 java -jar /local/da/pasta/astral.5.7.8.jar -i all-gene-trees.relabel.tree -o sptree_astral.tree 2> sptree_astral.log
 ```
 
-
-Vamo renomear os tips da árvore de supermatrix. Voltamos então par a pasta supermatrix_tree.
-
-```
-pxrlt -t minha_supermatrix.fasta.treefile -c cnames.txt -n nnames.txt -o minha_supermatrix.fasta.relabel.tree
-```
 
 Uhuuuul!!! Agora nós já temos uma árvore de espécies para nosso conjunto de dados. :D
 
