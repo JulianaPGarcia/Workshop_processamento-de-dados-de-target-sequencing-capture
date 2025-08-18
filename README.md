@@ -5,8 +5,9 @@
 # 27 de agosto 2025 / 29 de agosto 2025
 
 # Instrução: Juliana, Milena, Matheus e João
- 
-Esse workshop abordará algumas das principais etapas de processamento e análise de dados moleculares/genéticos provenientes de 'Targeted-enrichment Sequencing', especificamente do painel do Cactaceae591.
+
+O sequenciamento de DNA revolucionou o estudo evolutivo, pois proporciona análises genéticas dos indivíduos e espécies, e não apenas as análises morfológicas. A utilização dos dados genéticos, juntamente com a bioinformática permite reconstruir filogenias. Esse workshop abordará algumas das principais etapas de processamento e análise de dados moleculares/genéticos provenientes de 'Targeted-enrichment Sequencing', especificamente do painel do Cactaceae591. Serão utilizados programas como o Hybpiper, IQTree, entre outros, para realizar o processamento dos dados e as inferências filogenéticas. 
+
 O curso foi organizado, de maneira teórico-prática, com o objetivo de que você: 
   
   - 1) Entenda como os dados foram e são gerados;
@@ -20,6 +21,8 @@ O curso foi organizado, de maneira teórico-prática, com o objetivo de que voc�
   - 8) Obtenha uma árvore de espécies, utilizando um método sumário de coalescência de espécies;
  
 Além dessa parte, serão fornecidos recursos bibliográficos adicionais, e discutidos aspectos tangenciais à parte prática aqui aplicada. Não abordaremos aspetos teóricos e práticos de maneira exaustiva, apenas forneceremos um panorama geral de como iniciar um projeto com dados de target-enrichment, e terminá-lo com uma árvore filogenética. Provavelmente, você irá se deparar com dificuldades teóricas, práticas, metodológicas e/ou computacionais em algum momento. Não se assuste e não desista - tod@s passam por isso, até Marie Curie, Einsten, Darwin, e Felsestein. 
+
+Os comandos apresentados foram baseados no workshop "Análises Filogenéticas Computacionais", ministrado por M. Kohler, M. Telhe e M. Romeiro-Brito.
 
 [1) Entenda como os dados foram e são gerados](https://github.com/JulianaPGarcia/Curso-de-processamento-de-dados-de-target-sequencing-capture/blob/main/README.md#1-entenda-como-os-dados-foram-e-s%C3%A3o-gerados)
 
@@ -120,7 +123,7 @@ O HybPiper é um 'programa' (na verdade, chamamos de 'pipeline', pois é um prog
 Ele irá juntar as sequências brutas (raw) em "genes" ou outras unidades informativas do genoma que temos interesse. Para fazer o assembly, o HybPiper precisa dos dados brutos, um arquivo contendo sequências de referência das regiões alvo, além de um arquivo contendo todos os nomes das amostras - pois isso facilitará as próximas etapas.
 
 
-# Certifique-se de que seus dados brutos estejam descompactados (por exemplo, sample.fastq e não sample.fastq.gz).
+Certifique-se de que seus dados brutos estejam descompactados (por exemplo, sample.fastq e não sample.fastq.gz).
 Se necessário, descompacte seus dados usando o comando abaixo:
 
 ```
