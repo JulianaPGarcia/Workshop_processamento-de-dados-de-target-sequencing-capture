@@ -109,6 +109,7 @@ Copiar os arquivos para a pasta
 
 ```
 cp trim* ./amostras_trimadas
+```
 
 ## 3) Montando as sequências brutas (trimadas) em unidades genéticas informativas (genes/locus) com o HybPiper
 
