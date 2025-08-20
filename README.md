@@ -24,6 +24,8 @@ Além dessa parte, serão fornecidos recursos bibliográficos adicionais, e disc
 
 Os comandos apresentados foram baseados no workshop "Análises Filogenéticas Computacionais", ministrado por M. Kohler, M. Telhe e M. Romeiro-Brito.
 
+Para relembrar comandos básicos do Linux acesse: https://github.com/Hesatum/guia-linux-essencial
+
 [1) Entenda como os dados foram e são gerados](https://github.com/JulianaPGarcia/Curso-de-processamento-de-dados-de-target-sequencing-capture/blob/main/README.md#1-entenda-como-os-dados-foram-e-s%C3%A3o-gerados)
 
 [2) Filtrando e removendo sequências brutas de baixa qualidade proveniente do sequenciamento](https://github.com/JulianaPGarcia/Curso-de-processamento-de-dados-de-target-sequencing-capture/blob/main/README.md#2-filtrando-e-removendo-sequ%C3%AAncias-brutas-de-baixa-qualidade-proveniente-do-sequenciamento)
