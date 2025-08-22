@@ -208,7 +208,7 @@ Podemos observar que além do nome da amostra, a sequência de DNA de cada amost
 
 ```
 sed -i 's/*_*[0-9]*_*hits*//g' *
-sed -i 's/single//g' *
+sed -i 's/single_hit//g' *
 sed -i 's/multi_hit_stitched_contig_comprising_*[0-9]*_*hits//g' *
 ```
 Os arquivos do supercontig apresentam outra mensagem de erro além destas a cima
