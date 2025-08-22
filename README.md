@@ -326,6 +326,12 @@ Dependendo da versão do trimal ele não reconhece o ? colocado no lugar de uma 
 sed -i 's/?/-/g' *.fasta
 ```
 
+Precisamos criar uma pasta para colocar nossos alinhamentos trimados 
+
+```
+mkdir alinhamento_trimado
+```
+
 Agora escolha um dos dois métodos e faça um loop para realizar esse polimento para todas as amostras usando um só comando. Exemplo abaixo utiliza o argumento strict:
 
 ```
