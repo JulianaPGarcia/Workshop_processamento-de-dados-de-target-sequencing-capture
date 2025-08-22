@@ -329,7 +329,7 @@ sed -i 's/?/-/g' *.fasta
 Agora escolha um dos dois métodos e faça um loop para realizar esse polimento para todas as amostras usando um só comando. Exemplo abaixo utiliza o argumento strict:
 
 ```
-for i in *.FNA; do trimal -in $i -out ./alinhamento_trimado/"$i"_trimmed.fasta -gt 0.7; done; 
+for i in *.fasta; do trimal -in $i -out ./alinhamento_trimado/"$i"_trimmed.fasta -gt 0.7; done; 
 ```
 
 Além do trimal, existem outros programas capazes de fazer um polimento dos dados. Um deles é o spruceup, uma ferramenta utilizada para descobrir, visualizar e remover sequências espúrias (muito discrepantes) em um alinhamento de múltiplas sequências. Essa ferramenta foi desenvolvida em Python, portanto para usa-la, além de instalar o próprio spruceup é preciso ter o Python instalado no computador. 
