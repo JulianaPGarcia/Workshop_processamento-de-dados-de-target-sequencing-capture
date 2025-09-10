@@ -345,6 +345,10 @@ Para utilizar o spruceup você precisará de uma supermatrix em fasta (gerada ao
 ```
 python -m spruceup my-configuration-file.conf
 ```
+
+Após o spruceup deve-se realizar a trimagem novamente
+
+
 Após rodar essa ferramenta poderemos encontrar os seguintes arquivos de saída (output):
 *0.valor-do-cut-off_nome-do-alinhamento.fasta - um arquivo fasta com seus dados trimados de acordo com os parâmetros previamente definidos (esse é seu arquivo que será usado nas próximas análises)
 *report - um arquivo com a informação de quais sequências foram identificadas como espúrias e trimadas do alinhamento.
