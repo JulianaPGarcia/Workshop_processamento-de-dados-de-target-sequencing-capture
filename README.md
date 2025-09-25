@@ -81,7 +81,7 @@ O nome do arquivo contém:
 - `fastq.gz` = código de extensão do arquivo; `fastq.gz` significa que a amostra está comprimida utilizando tipo de compressor `gz`. 
 
 As sequencias brutas descomprimidas possuem arquivo de extensão `fastq`. Mas conforme avançarmos no processamento dos dados, as sequencias vão mudando de extensão, por exemplo, `.fasta`, `.FNA`, `.phy`, `.nex`, ou outros.
-
+rename 's/\.FNA$/.fasta/' *.FNA
 
 A sintaxe básica para usar o _fastp_ em uma sequência é a seguinte:
 
