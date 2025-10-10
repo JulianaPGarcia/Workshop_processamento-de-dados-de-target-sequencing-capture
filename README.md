@@ -471,7 +471,7 @@ cp ../supermatrix_tree/nnames.txt ./
 Vamos renomear os tips das arvores de genes que geramos. 
 
 ```
-while read -r line;do sed -i "s/${line%* }/${line# *}/g" arvores_genes.txt;done < lista-nomes_tips.txt
+ while read -r old new; do sed -i "s|$old|$new|g" arvore.txt; done < nome_tips.txt
 ```
 
 Com esse arquivo contendo todas as nossas árvores de genes com os nós colapsados podemos rodar o programa Astral. 
