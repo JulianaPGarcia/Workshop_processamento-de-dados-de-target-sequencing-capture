@@ -236,7 +236,7 @@ Você também pode verificar os arquivos `_paralog_report.tsv_`, `paralogs_above
 Se você tiver `mafft` e `iQTree` instalados, você pode criar uma árvore diretamente de um arquivo `*.paralogs_all.fasta` usando o seguinte comando:
 ```
 nohup sh -c 'for i in *.fasta; do mafft --reorder --preservecase --auto "$i" > "./Alignments/aligned_$i"; done'  &
-nohup sh -c 'for i in *.fasta; do iqtree -nt 4 -s "$i" -st DNA -m MFP -B 1000; done 2>iqtree.err' &
+nohup sh -c 'for i in *.fasta; do iqtree -nt 4 -s "$i" -st DNA -m MFP -mset raxml -B 1000; done 2>iqtree.err' &
 ```
 
 Essas duas sequências parálogas ou alelos? 
