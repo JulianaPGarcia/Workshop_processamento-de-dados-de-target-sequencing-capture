@@ -233,6 +233,18 @@ hybpiper paralog_retriever namelist.txt -t_dna targets.fasta
 Depois de rodar esse código, confira o arquivo `paralog_heatmap.png`. Existem cópias parálogas no seu conjunto de dados? Quais são?
 Você também pode verificar os arquivos `_paralog_report.tsv_`, `paralogs_above_threshold_report.txt`, e conferir como as cópias parálogas estão distribuídas no seu conjunto de dados e no seu grupo de estudo.
 
+Devemos alinhar os loci
+
+```
+mkdir Alignments
+```
+
+Agora, o loop para alinhar todas as sequencias, e direcionar para a pasta criada:
+
+```
+nohup sh -c 'for i in *.fasta; do mafft --reorder --preservecase --auto "$i" > "./Alignments/aligned_$i"; done'  &
+```
+
 Se você tiver `mafft` e `iQTree` instalados, você pode criar uma árvore diretamente de um arquivo `*.paralogs_all.fasta` usando o seguinte comando:
 ```
 nohup sh -c 'for i in *.fasta; do mafft --reorder --preservecase --auto "$i" > "./Alignments/aligned_$i"; done'  &
