@@ -373,12 +373,12 @@ Agora que temos uma supermatrix sem sequencias espúrias, nós podemos separar e
 Para renomear será preciso um arquivo com os nomes antigo (cnames.txt) e um arquivo com os nomes finais (nnames.txt)
 
 ```
-pxrls -s 0.valor-do-cut-off_nome-do-alinhamento.fasta -c cnames.txt -n nnames.txt -o 0.valor-do-cut-off_nome-do-alinhamento.fasta _renomeada
+pxrls -s 0.valor-do-cut-off_nome-do-alinhamento.fasta -c cnames.txt -n nnames.txt -o 0.valor-do-cut-off_nome-do-alinhamento_renomeada.fasta 
 ```
 Para desconcatenar os alinhamentos com os nomes finais  (vale ressaltar que dependendo da maneira que o programa foi instalado tem que colocar todo o caminho até ele no lugar do AMAS.py; ex: /mnt/c/Users/Pichau/Desktop/Programas/AMAS/amas/AMAS.py):
 
 ```
-python3 AMAS.py split -f fasta -d dna -i 0.valor-do-cut-off_nome-do-alinhamento.fasta _renomeada -l partitions.txt -u fasta -j
+python3 AMAS.py split -f fasta -d dna -i 0.valor-do-cut-off_nome-do-alinhamento_renomeada.fasta -l partitions.txt -u fasta -j
 ```
 Agora você verá que em sua pasta, além da supermatrix, você tem o arquivo do alinhamento 'polido' de cada um dos locos definidos no arquivo de partição.
 Esses alinhamentos 'polidos" serão nossos conjunto de dados utilizados em todas as análises a seguir, portanto mova-os para uma pasta separada. 
@@ -404,7 +404,7 @@ Para inferir uma árvore para cada loco utilizando o iQTree, podemos usar o coma
 
 Exemplo para um loco.
 ```
-iqtree -s example.phy -m MFP -B 1000
+iqtree -s example.phy -m MFP -B 10000
 ```
 Exemplo de loop para todos os arquivos em um só comando.
 ```
@@ -443,7 +443,7 @@ export PATH=$PATH:caminho_para_o_programa/iqtree-2.2.0-Linux/bin
 Agora com a nossa supermatrix podemos utilizá-la para gerar uma árvore baseada em máxima verossimilhança utilizando todos os nossos locos (explore os comandos possíveis do programa com o -help). 
 
 ```
-iqtree -nt 10 -s minha_supermatrix.fasta  -p partitions.txt  -st DNA -m MFP -B 1000
+iqtree -nt 10 -s minha_supermatrix.fasta  -p partitions.txt  -st DNA -m MFP -B 10000
 ```
 
 Podemos renomear a árvore nesta etapa, será preciso um arquivo com os nomes antigo (cnames.txt) e um arquivo com os nomes finais (nnames.txt)
@@ -462,7 +462,7 @@ Nesse tutorial utilizaremos o programa Astral III. Esse programa é um método s
 Para gerar as árvores de cada gene é similar ao passo anterior, mas ao inves de utilizar o arquivo concatenado iremos utilizar cada alinhamento
 
 ```
-nohup sh -c 'for i in *.fasta; do iqtree2 -nt 10 -s "$i" -st DNA -m MFP -B 1000; done 2>iqtree.err' &
+nohup sh -c 'for i in *.fasta; do iqtree2 -nt 10 -s "$i" -st DNA -m MFP -B 10000; done 2>iqtree.err' &
 ```
 
 Como dado de entrada para o astral utilizaremos as árvores de genes geradas pelo iQTree. Para isso precisamos entrar na pasta onde estão todos as minhas árvores de genes e junta-las em um único arquivo.
